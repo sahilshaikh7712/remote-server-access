@@ -13,7 +13,7 @@ jobs:
     
     steps:
      - name: building jar file
-       run: echo "HELLO THIS IS SAHIL" > hello.txt
+       run: echo "HELLO THIS IS SAHIL HERE" > hello.txt
 
      - name: Publish
        uses: nogsantos/scp-deploy@master
