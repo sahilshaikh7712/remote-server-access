@@ -1,0 +1,27 @@
+name: ssh 
+
+on:
+  push:
+    branches: [ main ]
+
+
+jobs:
+  ssh:
+
+  
+    runs-on: [runner1]
+    
+    steps:
+     - name: building jar file
+       run: echo "HELLO THIS IS SAHIL" > hello.txt
+
+     - name: Publish
+       uses: nogsantos/scp-deploy@master
+       with:
+          src: hello.txt
+          host: ${{ secrets.SSH_HOST }}
+          remote: ${{ secrets.SSH_DIR }}
+          port: ${{ secrets.SSH_PORT }}
+          user: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+
